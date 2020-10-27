@@ -24,48 +24,36 @@ $.fn.random = function() {
 
 const region = "The Leftist Assembly" // Change this if you are in a different region
 
-(function() {
-	var shifted = false;
-	var controlled = false;
-	var alternated = false;
-	$(document).keydown(function(f) {
-		shifted = f.shiftKey;
-        controlled = f.ctrlKey;
-		alternated = f.altKey;
-		// Stops the spacebar from scrolling
-		if (f.keyCode == 32 && f.target == document.body) {
-			f.preventDefault();
-			f.stopPropagation();
-		}
-	});
+
+
+function keyBind() {
 	// This is the main keymapping function of the script
 	$(document).keyup(function(e) {
-		// ZBreeze will not activate while you are using the Shift, Ctrl, ot Alt keys
-        if (shifted || controlled || alternated){
-			return;
+        if (e.shiftKey || e.ctrlKey || e.altKey) {
+            return;
         }
-		else {
-			if ($("input,textarea").is(":focus")){
-			// ZBreeze will not activate if you are typing in a text field
-				return;
-			}
-			// Go Back (<)
-			else if (e.keyCode == 188) {
-				window.history.back();
-			}
-			// Refresh (N)
-			else if (e.keyCode == 78) {
-				window.location.reload();
-			}
-			// Go to "Most Infected" census page (I)
-			else if (e.keyCode == 73) {
-				window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=82`;
-			}
-			// Go to "Most Infected" census page (Z)
-			else if (e.keyCode == 90) {
-				window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=84`;
-			}
-      
+
+		if ($("input,textarea").is(":focus")){
+		// ZBreeze will not activate if you are typing in a text field
+			return;
+		}
+		// Go Back (<)
+		else if (e.keyCode == 188) {
+			window.history.back();
+		}
+		// Refresh (N)
+		else if (e.keyCode == 78) {
+			window.location.reload();
+		}
+		// Go to "Most Infected" census page (I)
+		else if (e.keyCode == 73) {
+			window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=82`;
+		}
+		// Go to "Most Infected" census page (Z)
+		else if (e.keyCode == 90) {
+			window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=84`;
 		} //End of Else keylist
 	}); // End of Keyup Function(e)
-})(); //End of Main function
+}; //End of Main function
+
+document.addEventListener('keydown', keyBind, false);
