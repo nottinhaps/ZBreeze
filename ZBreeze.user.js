@@ -15,6 +15,7 @@
 [<] Go back
 [I] Go to "Most Infected" census page for The Leftist Assembly
 [Z] Go to "Most Zombified" census page for The Leftist Assembly
+[S] Go to scoreboard for Z-Day
 */
 
 /* global $ */
@@ -38,22 +39,27 @@ function keyBind() {
 		// ZBreeze will not activate if you are typing in a text field
 			return;
 		}
-		// Go Back (<)
-		else if (e.keyCode == 188) {
-			window.history.back();
-		}
-		// Refresh (N)
-		else if (e.keyCode == 78) {
-			window.location.reload();
-		}
-		// Go to "Most Infected" census page (I)
-		else if (e.keyCode == 73) {
-			window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=82`;
-		}
-		// Go to "Most Infected" census page (Z)
-		else if (e.keyCode == 90) {
-			window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=84`;
-		} //End of Else keylist
+		// Key bindings of ZBreeze
+		switch (e.keyCode) {
+			// Go Back (<)
+			case 188:
+				window.history.back();
+				break;
+			// Refresh (N)
+			case 78:
+				window.location.reload();
+				break;
+			// Go to "Most Infected" census page (I)
+			case 73:
+				window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=82`;
+				break;
+			case 90:
+				window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=84`;
+				break;
+			case 83:
+				window.location.href = "https://www.nationstates.net/page=zday_tally";
+				break;
+		} // End of switch/case
 	}); // End of Keyup Function(e)
 }; //End of Main function
 
