@@ -22,7 +22,7 @@ $.fn.random = function() {
   return this.eq(Math.floor(Math.random() * this.length));
 }
 
-const facID = "21"; // update when N-Day starts!
+const region = "The Leftist Assembly" // Change this if you are in a different region
 
 (function() {
 	var shifted = false;
@@ -59,11 +59,11 @@ const facID = "21"; // update when N-Day starts!
 			}
 			// Go to "Most Infected" census page (I)
 			else if (e.keyCode == 73) {
-				window.location.href = "https://www.nationstates.net/page=list_nations/mode=g/region=the_leftist_assembly/censusid=82";
+				window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=82`;
 			}
 			// Go to "Most Infected" census page (Z)
 			else if (e.keyCode == 90) {
-				window.location.href = "https://www.nationstates.net/page=list_nations/mode=g/region=the_leftist_assembly/censusid=84";
+				window.location.href = `https://www.nationstates.net/page=list_nations/mode=g/region=${region}/censusid=84`;
 			}
       
 		} //End of Else keylist
