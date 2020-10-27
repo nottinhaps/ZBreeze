@@ -29,6 +29,7 @@ const region = "The Leftist Assembly" // Change this if you are in a different r
 function keyBind() {
 	// This is the main keymapping function of the script
 	$(document).keyup(function(e) {
+	// ZBreeze will not activate while you are using the Shift, Ctrl, ot Alt keys
         if (e.shiftKey || e.ctrlKey || e.altKey) {
             return;
         }
